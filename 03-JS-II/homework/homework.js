@@ -6,11 +6,11 @@ function obtenerMayor(x, y) {
   // Si son iguales, devuelve cualquiera de los dos
   // Tu código:
   if (x > y) {
-    console.log(`El numero mas grande es ` + x);
+    return x;
   } else if (y > x) {
-    console.log(`El numero mas grande es ` + y);
+    return y;
   } else
-    console.log(y);
+    return y;
 }
 
 function mayoriaDeEdad(edad) {
@@ -18,9 +18,9 @@ function mayoriaDeEdad(edad) {
   //Si tiene 18 años ó más, devolver --> "Allowed"
   //Si es menor, devolver --> "Not allowed"
   if (edad >= 18) {
-    console.log(`Allowed`);
+    return `Allowed`;
   } else
-    console.log(`Not Allowed`);
+    return `Not allowed`;
 }
 
 function conection(status) {
@@ -31,15 +31,15 @@ function conection(status) {
   //Devolver el estado de conexión de usuario en cada uno de los casos.
   switch (status) {
     case 1:
-      console.log(`Online`);
+      return `Online`;
       break;
 
     case 2:
-      console.log(`Away`);
+      return `Away`;
       break;
 
     default:
-      console.log(`Offline`);
+      return `Offline`;
   }
 }
 
@@ -53,19 +53,19 @@ function saludo(idioma) {
 
   switch (idioma) {
     case "aleman":
-      console.log(`Guten Tag!`);
+      return `Guten Tag!`;
       break;
 
     case "mandarin":
-      console.log(`Ni Hao!`);
+      return `Ni Hao!`;
       break;
 
     case "ingles":
-      console.log(`Hello`);
+      return `Hello!`;
       break;
 
     default:
-      console.log(`Hola`);
+      return `Hola!`;
   }
 }
 
@@ -79,23 +79,23 @@ function colors(color) {
   //Usar el statement Switch.
   switch (color) {
     case `blue`:
-      console.log(`This is blue`);
+      return `This is blue`;
       break;
 
     case `red`:
-      console.log(`This is red`);
+      return `This is red`;
       break;
 
     case `green`:
-      console.log(`This is green`);
+      return `This is green`;
       break;
 
     case `orange`:
-      console.log(`This is orange`);
+      return `This is orange`;
       break;
 
     default:
-      console.log(`Color not found`);
+      return `Color not found`;
   }
 
 }
@@ -145,10 +145,11 @@ function fizzBuzz(numero) {
     return `fizzbuzz`;
   }
   if (numero % 3 == 0) {
-    return `Fizz`;
+    return `fizz`;
   } else if (numero % 5 == 0) {
     return `buzz`;
   }
+  return numero;
 }
 
 function operadoresLogicos(num1, num2, num3) {
@@ -159,22 +160,21 @@ function operadoresLogicos(num1, num2, num3) {
   //0 no es ni positivo ni negativo. Si alguno de los argumentos es 0, retornar "Error".
   //Si no se cumplen ninguna de las condiciones anteriores, retornar false. 
 
-  if (num1 == 0 || num2 == 0 || num3 == 0) {
+  if (num1 === 0 || num2 === 0 || num3 === 0) {
     return `Error`;
   }
-  if (num1 > num2 && num1 > num3 && num1 > 0) {
-    console.log(`Numero 1 es mayor y positivo`);
-  }
   if (num1 < 0 || num2 < 0 || num3 < 0) {
-    console.log(`Hay negtivos`);
+    return `Hay negativos`;
   }
+  if (num1 > num2 && num1 > num3 && num1 > 0) {
+    return `Número 1 es mayor y positivo`;
+  }
+  
   if (num3 > num1 && num3 > num2) {
     var cuenta = num3 + 1;
-    console.log(cuenta);
+    return cuenta;
   }
-  if (num2 > num3 && num2 > num1 && num2 > 0) {
-    return false;
-  }
+  return false;
 }
 
 function esPrimo(numero) {
@@ -207,20 +207,18 @@ function esPrimo(numero) {
   function tablaDelSeis() {
     //Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
     //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
-    //Escribe tu código aquí   
-    do {
-      i += 1;
-      mult = i * 6;
+    //Escribe tu código aquí 
+    var mult = [];
+    for(var i = 0; i < 11; i++) {
+       mult.push(i * 6);
     }
-    while (i < 10);
-
-    console.log(mult);
+    return mult;
   }
 
   function tieneTresDigitos(numero) {
     //Leer un número entero y retornar true si tiene 3 dígitos. Caso contrario, retorna false.
     //Escribe tu código aquí
-    if (console.log(numero.length)== 3) {
+    if (numero > 99 && numero < 1000) {
       return true;
     }
     return false;
@@ -230,9 +228,11 @@ function esPrimo(numero) {
     //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
     //Retornar el valor final.
     //Usar el bucle do ... while.
+    var i = 0;
+    var cuenta = numero;
     do {
-      i +=1;
-      cuenta = numero * 5;
+      i = i + 1;
+      cuenta = cuenta + 5;
     }
     while (i < 8);
 
